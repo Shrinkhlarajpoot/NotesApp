@@ -1,1 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bree+Serif&family=Montserrat:ital,wght@0,400;0,500;0,900;1,600;1,900&family=Playball&family=Recursive:wght@300&family=Roboto+Slab&family=Source+Sans+Pro:ital@0;1&display=swap');
 
+:root{
+  --primary-color:rgb(0,158,129);
+  --bg-color:rgb(245,245,245);
+  --font-fam:'Acme', sans-serif;
+  --box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  --text--color:rgb(54, 52, 52)
+}
+.app{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+html{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: var(--font-fam);
+  background-color: var(--bg-color);
+}
+.Link_style {
+  color: var(--text--color);
+  cursor: pointer;
+  text-decoration: none;
+}
+@media screen and (max-width: 490px) {
+  html {
+    font-size: 80%;
+  }
+}
