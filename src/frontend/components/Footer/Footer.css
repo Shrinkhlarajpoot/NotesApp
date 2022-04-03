@@ -1,0 +1,22 @@
+.footer{
+    width:100vw;
+    height:11vh;
+    display: flex;
+    color:var(--primary-color);
+    font-size:1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(54, 52, 52);
+
+}
+.footer >*{
+    padding:0.5rem 0;
+}
+.social__links{
+    display: flex;
+    /* padding:1rem; */
+}
+.social__links >*{
+    padding: 0 1rem;
+}
