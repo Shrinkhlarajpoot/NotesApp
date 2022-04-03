@@ -1,0 +1,11 @@
+.filter_icon {
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+  padding: 10px;
+  background-color: var(--bg2-color);
+  border-radius: 50%;
+}
+.filter_icon:hover {
+  box-shadow: var(box-shadow);
+}

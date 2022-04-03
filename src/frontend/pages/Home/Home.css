@@ -1,0 +1,63 @@
+.main__wrapper{
+    display: flex;
+   
+    width:100vw;
+}
+.home__wrapper{
+    position: relative;
+}
+.main__wrapper-notes{
+    width:100%;
+    flex-direction: column;
+    position: relative;
+    /* background-color: pink; */
+  
+}
+.notes__editor{
+    width: 60%;
+    margin:1rem auto;
+    background-color: var(--bg-color);
+    text-align: center;
+    border:1px solid black;
+    position: relative;
+    margin-bottom:5rem;;
+}
+.notes__editor-title{
+    width:100%;
+    border:none;
+    height:2rem;
+    padding:0 10px;
+}
+.editor__buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height:2rem;
+    /* background-color: green; */
+}
+.btn_sec{
+    padding:0.2rem 1rem;
+    border: 1px solid var(--primary-color);
+    margin:0 1rem 0 0;
+    background-color: var(--bg2-color);
+    cursor: pointer;
+}
+.editor__buttons-start{
+    margin:0  0 0 0.5rem; 
+}
+.editor__icons{
+    margin:0  0 0 0.2rem;
+    cursor: pointer;
+    color:var(--primary-color)
+}
+.notes__wrapper{
+    width:90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+}
