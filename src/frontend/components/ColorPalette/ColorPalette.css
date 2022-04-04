@@ -1,0 +1,21 @@
+.color__palette{
+    display: flex;
+    flex-wrap: wrap;
+    width:11rem;
+    height:fit-content;
+    padding:0.5rem;
+    position: absolute;
+    margin-bottom: 1rem;
+    background-color: var(--bg2-color);
+    border-radius: 10px;
+    z-index:3;
+    bottom: -58px;
+}
+.color__palette-btn{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 0 1px 0 0 ;
+}

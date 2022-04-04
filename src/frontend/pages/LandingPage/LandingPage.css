@@ -38,7 +38,7 @@
 .lp__desp-account:hover{
     color:var(--primary-color)
 }
-.btn{
+.lp__btn{
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
     font-weight: bold;
@@ -46,7 +46,7 @@
     border: none;
     cursor: pointer;
 }
-.btn:hover{
+.lp__btn:hover{
     box-shadow: var(--box-shadow);
 }
 .lg__light-mood{

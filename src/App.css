@@ -3,6 +3,7 @@
 :root{
   --primary-color:rgb(0,158,129);
   --bg-color:rgb(245,245,245);
+  --bg2-color:rgb(216, 223, 222);
   --font-fam:'Acme', sans-serif;
   --box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   --text--color:rgb(54, 52, 52)
@@ -24,6 +25,10 @@ html{
   color: var(--text--color);
   cursor: pointer;
   text-decoration: none;
+}
+.material-icons-outlined{
+  cursor: pointer;
+  color:var(--primary-color)
 }
 @media screen and (max-width: 490px) {
   html {

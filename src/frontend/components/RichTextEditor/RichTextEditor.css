@@ -1,0 +1,16 @@
+.quill .ql-editor {
+  height: 5rem;
+  background-color: white;
+  overflow-y: scroll;
+}
+.quill .ql-toolbar.ql-snow {
+  border: none;
+}
+.quill .ql-container.ql-snow {
+  min-height: 0.5rem;
+}
+
+.quill .ql-editor p img {
+  max-width: 14rem;
+  display: inline-block;
+}

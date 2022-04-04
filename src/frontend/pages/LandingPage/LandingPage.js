@@ -19,7 +19,7 @@ const LandingPage = () => {
           Efficiency without any Efforts.
         </h3>
 
-        <button class="btn btn_solid-primary btn_primary" onClick={()=>navigate("/signup")} >{auth.token ?"Go to Notes":"Join Now"}</button>
+        <button class="btn btn_solid-primary btn_primary lp__btn" onClick={()=>navigate(auth.token?"/home":"/signup")} >{auth.token ?"Go to Notes":"Join Now"}</button>
         <div class="lp__desp-account " onClick={()=>navigate("/login")}>Already have an account ?</div>
       </div>
       <span class="material-icons-outlined lg__light-mood">light_mode</span>
