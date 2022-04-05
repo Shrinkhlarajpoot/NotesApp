@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { InitialValues, NotesReducerFun } from "../../reducers/notesReducer";
 import {
   deletetrashnoteService,
+  editnoteService,
   getarchivenoteService,
   getnotesService,
   gettrashnoteService,
@@ -12,7 +13,11 @@ import {
   posttrashnoteService,
   restorearchivenoteService,
   restoretrashnoteService,
+  editarchivenoteService,
+  postnotepinService,
+ 
 } from "../services";
+
 import { useAuth } from "./authContext";
 const NotesContext = createContext();
 const useNotes = () => useContext(NotesContext);
@@ -188,6 +193,64 @@ const NotesProvider = ({ children }) => {
       })();
     }
   }
+
+
+
+  function editNoteHandler(e,note) {
+    e.stopPropagation()
+    const existInArchive = notesState.archiveList?.find(
+      (item) => item._id === note._id
+    );
+    if (token) {
+      (async function () {
+        try {
+          const { status, data } = existInArchive
+            ? await editarchivenoteService(note,token)
+            : await editnoteService(token,note);
+          console.log(data);
+          if (status === 201) {
+            existInArchive
+              ? notesDispatch({
+                  type: "SET_ARCHIVE_NOTES",
+                  payload: {
+                    archiveList: data.archives,
+                  },
+                })
+              : notesDispatch({
+                  type: "SET_NOTES",
+                  payload: {
+                    notesList: data.notes,
+                  },
+                });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }
+  }
+
+   function togglePinHandler(e, note) {
+    e.stopPropagation();
+    if (token) {
+      (async function(){
+      try {
+        const { status, data } = await postnotepinService(note, token);
+        console.log(data);
+        if (status === 200) {
+          notesDispatch({
+            type: "SET_NOTES",
+            payload: { notesList: data.notes },
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }
+  }
+
+  
   useEffect(() => {
     if (token) {
       (async function () {
@@ -208,6 +271,8 @@ const NotesProvider = ({ children }) => {
       })();
     }
   }, []);
+
+
   useEffect(() => {
     if (token) {
       (async function () {
@@ -260,6 +325,9 @@ const NotesProvider = ({ children }) => {
         deleteTrashNoteHandler,
         restoreTrashNoteHandler,
         addArchieveToTrashHandler,
+        editNoteHandler,
+        togglePinHandler,
+       
       }}
     >
       {children}

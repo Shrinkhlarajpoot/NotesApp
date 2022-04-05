@@ -10,3 +10,6 @@ export {posttrashnoteService} from "./Notesservices/posttrashnoteService";
 export {restoretrashnoteService} from "./Notesservices/restoretrashnoteService";
 export {deletetrashnoteService} from "./Notesservices/deletetrashnoteService";
 export {postarchivestotrashService} from "./Notesservices/postarchivetotrashService";
+export {editnoteService} from "./Notesservices/editnoteService";
+export {editarchivenoteService} from "./Notesservices/editarchivenoteService";
+export {postnotepinService} from "./Notesservices/postnotepinService";

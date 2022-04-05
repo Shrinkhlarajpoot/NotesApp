@@ -1,22 +1,68 @@
+import { useState,useEffect,useRef } from "react";
 import { useNotes } from "../../context";
+import { ColorPalette } from "../ColorPalette/ColorPalette";
 import "./NoteCard.css";
 const NoteCard = ({ note }) => {
+  const noteCardRef = useRef(null);
+  const [toggleColorPallete, setToggleColorPallette] = useState(false);
   const {
     addarchivenoteHandler,
     notesState,
     restoreArchiveNote,
     addNoteToTrashHandler,
     addArchieveToTrashHandler,
+    notesDispatch,
+    togglePinHandler,
+    editNoteHandler,
   } = useNotes();
   const existInArchive = notesState.archiveList?.find(
     (item) => item._id === note._id
   );
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (
+        toggleColorPallete &&
+        noteCardRef.current &&
+        !noteCardRef.current.contains(e.target)
+      ) {
+        setToggleColorPallette(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [toggleColorPallete]);
+  function changeColor(e, color) {
+    e.stopPropagation();
+    editNoteHandler(e, { ...note, bgColor: color });
+  }
+
   console.log(existInArchive);
   return (
-    <div className="notescard" key={note._id}>
+    <div
+      style={{ backgroundColor: note.bgColor }}
+      className="notescard"
+      key={note._id}
+      ref={noteCardRef}
+      onClick={() => {
+        notesDispatch({
+          type: "EDIT_NOTE",
+          payload: { isEditing: true, editNote: note },
+        });
+      }}
+    >
+      {toggleColorPallete ? <ColorPalette changeColor={changeColor} /> : null}
       <div className="title__pin">
         <div className="note__title">{note.title}</div>
-        <span class="material-icons-outlined">push_pin</span>
+        <span
+          class={note.isPinned ? "material-icons" : "material-icons-outlined"}
+          onClick={(e) => togglePinHandler(e, note)}
+        >
+          {existInArchive ? null : "push_pin"}
+        </span>
       </div>
       <div
         className="note__desp"
@@ -25,7 +71,15 @@ const NoteCard = ({ note }) => {
       <div className="notecard__desp2">
         <div>{note.createdAt}</div>
         <div className="notescard__btns">
-          <span class="material-icons-outlined">palette</span>
+          <span
+            class="material-icons-outlined"
+            onClick={(e) => {
+              e.stopPropagation();
+              setToggleColorPallette(!toggleColorPallete);
+            }}
+          >
+            palette
+          </span>
           <span class="material-icons-outlined">label</span>
           <span
             class="material-icons-outlined"
