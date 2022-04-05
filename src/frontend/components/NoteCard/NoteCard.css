@@ -1,34 +1,33 @@
-.notescard{
-    min-width:22rem;
-    max-width:25rem;
-    height:fit-content;
+.notescard {
+    min-width: 22rem;
+    max-width: 25rem;
+    height: fit-content;
     background-color: white;
     display: flex;
     flex-direction: column;
-    border:1px solid var(--primary-color);
-    padding:5px 8px;
+    border: 1px solid var(--primary-color);
+    padding: 6px 9px;
     word-wrap: break-word;
     position: relative;
-
-}
-.title__pin{
+    border-radius: 10px;
+  }
+  .title__pin {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom:12px;
-}
-.note__desp{
-    min-height:4rem;
+    margin-bottom: 12px;
+  }
+  .note__desp {
+    min-height: 4rem;
     font-weight: 100;
     font-size: 0.8rem;
-    
-}
-.notecard__desp2{
+  }
+  .notecard__desp2 {
     background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.note__title{
-    color:var(--primary-color)
-}
+  }
+  .note__title {
+    color: var(--primary-color);
+  }
