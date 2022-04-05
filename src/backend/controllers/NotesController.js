@@ -130,6 +130,35 @@ export const updateNoteHandler = function (schema, request) {
   }
 };
 
+export const updateNotePinHandler = function (schema, request) {
+  const user = requiresAuth.call(this, request);
+  try {
+      if (!user) {
+          return new Response(
+              404,
+              {},
+              {
+                  errors: ["The email you entered is not Registered. Not Found error"],
+              }
+          );
+      }
+      const { note } = JSON.parse(request.requestBody);
+      const { noteId } = request.params;
+      const noteIndex = user.notes.findIndex((note) => note._id === noteId);
+      user.notes[noteIndex] = { ...user.notes[noteIndex], isPinned: !note.isPinned };
+      this.db.users.update({ _id: user._id }, user);
+      return new Response(200, {}, { notes: user.notes });
+  } catch (error) {
+      return new Response(
+          500,
+          {},
+          {
+              error,
+          }
+      );
+  }
+};
+
 /**
  * This handler handles archiving a note
  * send POST Request at /api/notes/archive/:noteId
@@ -151,7 +180,7 @@ export const archiveNoteHandler = function (schema, request) {
     const { noteId } = request.params;
     const archivedNote = user.notes.filter((note) => note._id === noteId)[0];
     user.notes = user.notes.filter((note) => note._id !== noteId);
-    user.archives.push({ ...archivedNote });
+    user.archives.push({ ...archivedNote,isPinned: false});
     this.db.users.update({ _id: user._id }, user);
     return new Response(
       201,

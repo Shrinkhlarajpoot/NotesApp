@@ -2,7 +2,7 @@
     min-width: 22rem;
     max-width: 25rem;
     height: fit-content;
-    background-color: white;
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     border: 1px solid var(--primary-color);
@@ -10,6 +10,7 @@
     word-wrap: break-word;
     position: relative;
     border-radius: 10px;
+    margin-bottom: 1rem;;
   }
   .title__pin {
     display: flex;
@@ -30,4 +31,7 @@
   }
   .note__title {
     color: var(--primary-color);
+  }
+  .note__desp img{
+    max-width:10rem;
   }

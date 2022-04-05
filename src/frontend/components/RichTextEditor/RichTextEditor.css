@@ -1,6 +1,5 @@
 .quill .ql-editor {
   height: 5rem;
-  background-color: white;
   overflow-y: scroll;
 }
 .quill .ql-toolbar.ql-snow {
@@ -11,6 +10,6 @@
 }
 
 .quill .ql-editor p img {
-  max-width: 14rem;
+  max-width:2rem;
   display: inline-block;
 }

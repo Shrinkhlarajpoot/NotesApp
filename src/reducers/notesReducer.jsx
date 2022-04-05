@@ -1,7 +1,9 @@
 const InitialValues = {
     notesList: [],
     archiveList: [],
-    trashList: [],
+    trashList: [], 
+    isEditing:false,
+    editNote:{title:"", note:""}
   };
   
   const NotesReducerFun = (notesState, { type, payload }) => {
@@ -31,6 +33,12 @@ const InitialValues = {
           notesList: payload.notesList,
           archiveList: payload.archiveList,
         };
+      case "EDIT_NOTE":
+       return {
+          ...notesState,
+          editNote:payload.editNote,
+          isEditing:payload.isEditing,
+        }
     }
   };
   export { InitialValues, NotesReducerFun };

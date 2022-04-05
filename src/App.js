@@ -3,6 +3,7 @@ import { Pageroutes } from "./routes/Pageroutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 function App() {
   return (
   <div className="app">
@@ -12,6 +13,8 @@ function App() {
         autoClose={1500}
         position="bottom-right"
       />  
+     
+      
   <Pageroutes/>
   </div>
   )
