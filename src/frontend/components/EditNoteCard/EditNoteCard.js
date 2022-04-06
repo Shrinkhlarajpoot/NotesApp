@@ -54,6 +54,13 @@ const EditNoteCard = ({ editNote }) => {
           value={editForm.note}
           setValue={(e) => setEditForm((prev) => ({ ...prev, note: e }))}
         ></RichTextEditor>
+        <input
+          value={editForm.tags}
+          name="tags"
+          className="tag__input"
+          onChange={(e) => changeHandler(e)}
+          placeholder="Enter tag"
+        ></input>
         <div className="editor__buttons">
           <div className="editor__buttons-start">
             <span

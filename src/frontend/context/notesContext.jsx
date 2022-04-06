@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { InitialValues, NotesReducerFun } from "../../reducers/notesReducer";
 import {
@@ -15,13 +14,11 @@ import {
   restoretrashnoteService,
   editarchivenoteService,
   postnotepinService,
- 
 } from "../services";
 
 import { useAuth } from "./authContext";
 const NotesContext = createContext();
 const useNotes = () => useContext(NotesContext);
-
 const NotesProvider = ({ children }) => {
   const {
     auth: { token },
@@ -30,6 +27,7 @@ const NotesProvider = ({ children }) => {
     NotesReducerFun,
     InitialValues
   );
+
   // console.log(notesState.trashList)
   function addnewnoteHandler(note) {
     if (token) {
@@ -104,7 +102,7 @@ const NotesProvider = ({ children }) => {
       (async function () {
         try {
           const { status, data } = await posttrashnoteService(token, note);
-          console.log(data,"from tash");
+          console.log(data, "from tash");
 
           if (status === 201) {
             notesDispatch({
@@ -194,10 +192,8 @@ const NotesProvider = ({ children }) => {
     }
   }
 
-
-
-  function editNoteHandler(e,note) {
-    e.stopPropagation()
+  function editNoteHandler(e, note) {
+    e.stopPropagation();
     const existInArchive = notesState.archiveList?.find(
       (item) => item._id === note._id
     );
@@ -205,8 +201,8 @@ const NotesProvider = ({ children }) => {
       (async function () {
         try {
           const { status, data } = existInArchive
-            ? await editarchivenoteService(note,token)
-            : await editnoteService(token,note);
+            ? await editarchivenoteService(note, token)
+            : await editnoteService(token, note);
           console.log(data);
           if (status === 201) {
             existInArchive
@@ -230,27 +226,26 @@ const NotesProvider = ({ children }) => {
     }
   }
 
-   function togglePinHandler(e, note) {
+  function togglePinHandler(e, note) {
     e.stopPropagation();
     if (token) {
-      (async function(){
-      try {
-        const { status, data } = await postnotepinService(note, token);
-        console.log(data);
-        if (status === 200) {
-          notesDispatch({
-            type: "SET_NOTES",
-            payload: { notesList: data.notes },
-          });
+      (async function () {
+        try {
+          const { status, data } = await postnotepinService(note, token);
+          console.log(data);
+          if (status === 200) {
+            notesDispatch({
+              type: "SET_NOTES",
+              payload: { notesList: data.notes },
+            });
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }
+      })();
+    }
   }
 
-  
   useEffect(() => {
     if (token) {
       (async function () {
@@ -271,7 +266,6 @@ const NotesProvider = ({ children }) => {
       })();
     }
   }, []);
-
 
   useEffect(() => {
     if (token) {
@@ -327,7 +321,6 @@ const NotesProvider = ({ children }) => {
         addArchieveToTrashHandler,
         editNoteHandler,
         togglePinHandler,
-       
       }}
     >
       {children}

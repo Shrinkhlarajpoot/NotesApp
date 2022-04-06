@@ -12,7 +12,7 @@ const bgColorList = [
   ];
   
   return (
-    <div className="color__palette">
+    <div className="color__palette" onClick={(e)=>e.stopPropagation()}>
       
       {bgColorList.map((color,index) => {
         return (
@@ -21,7 +21,9 @@ const bgColorList = [
             style={{
               backgroundColor: color,
             }}
-            onClick={(e)=>changeColor(e,color)}
+            onClick={(e)=>{
+              e.stopPropagation()
+              changeColor(e,color)}}
             type="button"
           ></button>
         );

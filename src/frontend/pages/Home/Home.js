@@ -15,16 +15,19 @@ const Home = () => {
   const { addnewnoteHandler, notesState } = useNotes();
   const noteInputRef = useRef(null);
   const [toggleColorPallete, setToggleColorPallette] = useState(false);
+  const [toggleLabelInput,setToggleLabelInput]=useState(false)
   const formatDate = () => dayjs().format("DD/MM/YY hh:mm:ss a");
   const [userData, setUserData] = useState({
     title: "",
     note: "<p><br></p>",
+    tags:[],
    
   });
   const submitFormHandler = (e) => {
     e.preventDefault();
-    addnewnoteHandler({ ...userData, createdAt: formatDate() });
-    setUserData((data) => ({ ...data, title: "", note: "<p><br></p>" }));
+    addnewnoteHandler({ ...userData, createdAt: formatDate()});
+    setUserData((data) => ({ ...data, title: "", note: "<p><br></p>" ,tags:[]}));
+    setToggleLabelInput(false)
   };
   const PinnedList = notesState.notesList?.filter((item) => item.isPinned);
   const UnPinnedList = notesState.notesList?.filter((item) => !item.isPinned);
@@ -74,6 +77,7 @@ const Home = () => {
               value={userData.note}
               setValue={(e) => setUserData({ ...userData, note: e })}
             />
+          {toggleLabelInput ?<input type="text" placeholder="Enter tags" className="tag__input" value={userData.tags} onChange={(e)=>setUserData({...userData,tags:e.target.value})}/>:null}
             <div className="editor__buttons">
               <div className="editor__buttons-start">
                 <span
@@ -82,10 +86,10 @@ const Home = () => {
                 >
                   palette
                 </span>
-                <span class="material-icons-outlined editor__icons">label</span>
+                <span class="material-icons-outlined editor__icons" onClick={()=>setToggleLabelInput(!toggleLabelInput)}>label</span>
               </div>
               <div className="editor__buttons-end">
-                <button className=" btn_sec" type="submit">
+                <button className=" btn_sec" type="submit" disabled={userData.title==="" && userData.note==="<p><br></p>"}>
                   Add Note
                 </button>
               </div>

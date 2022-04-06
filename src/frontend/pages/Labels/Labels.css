@@ -1,0 +1,17 @@
+.label__wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.2rem 1rem;
+    margin-top: 2rem;
+    min-height:100vh;
+    margin-left: 15rem;
+    margin:auto;
+}
+.empty__lables{
+    margin:2rem auto;
+    font-size:1.7rem;
+}
