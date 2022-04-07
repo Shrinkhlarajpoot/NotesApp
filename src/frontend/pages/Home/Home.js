@@ -15,8 +15,9 @@ import { useNotes } from "../../context";
 import { FinalFilteredSortedItem } from "../../../utils/getFinalFilteredSortedItem";
 import { useTheme } from "../../context/themeContext";
 const Home = () => {
- const {darkTheme}= useTheme()
-  const { addnewnoteHandler, notesState,togglesidebar ,searchItem} = useNotes();
+  const { darkTheme } = useTheme();
+  const { addnewnoteHandler, notesState, togglesidebar, searchItem } =
+    useNotes();
   const noteInputRef = useRef(null);
   const [toggleColorPallete, setToggleColorPallette] = useState(false);
   const [togglePriorityPallete, setTogglePriorityPallette] = useState(false);
@@ -26,7 +27,7 @@ const Home = () => {
     title: "",
     note: "<p><br></p>",
     tags: [],
-    priority:{Medium:'2'},
+    priority: { Medium: "2" },
   });
   const submitFormHandler = (e) => {
     e.preventDefault();
@@ -36,15 +37,15 @@ const Home = () => {
       title: "",
       note: "<p><br></p>",
       tags: [],
-      priority:[],
+      priority: { Medium: "2" },
     }));
     setToggleLabelInput(false);
     setTogglePriorityPallette(false);
-    setToggleColorPallette(false)
+    setToggleColorPallette(false);
   };
-  console.log(userData.priority)
-  console.log(notesState.sortByDate,"from home sortby")
-  const FinalNotesList= FinalFilteredSortedItem(notesState.notesList)
+  console.log(userData.priority);
+  console.log(notesState.sortByDate, "from home sortby");
+  const FinalNotesList = FinalFilteredSortedItem(notesState.notesList);
   const PinnedList = FinalNotesList?.filter((item) => item.isPinned);
   const UnPinnedList = FinalNotesList?.filter((item) => !item.isPinned);
   function changeColor(e, color) {
@@ -67,15 +68,15 @@ const Home = () => {
     return () => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
-  }, [toggleColorPallete,togglePriorityPallete]);
+  }, [toggleColorPallete, togglePriorityPallete]);
   return (
-    <div class="home__wrapper" >
+    <div class="home__wrapper">
       {notesState.isEditing && <EditNoteCard editNote={notesState.editNote} />}
       <Header />
       <Filter />
-      
-      <div className={`main__wrapper ${darkTheme?"darktheme":null}`}>
-      {togglesidebar ?<Sidebar />:null}
+
+      <div className={`main__wrapper ${darkTheme ? "darktheme" : null}`}>
+        {togglesidebar ? <Sidebar /> : null}
         <div className="main__wrapper-notes">
           <form
             className="notes__editor"
@@ -120,7 +121,14 @@ const Home = () => {
                 >
                   label
                 </span>
-                <span class="material-icons-outlined" onClick={()=>setTogglePriorityPallette(!togglePriorityPallete)}>signal_cellular_alt</span>
+                <span
+                  class="material-icons-outlined"
+                  onClick={() =>
+                    setTogglePriorityPallette(!togglePriorityPallete)
+                  }
+                >
+                  signal_cellular_alt
+                </span>
               </div>
               <div className="editor__buttons-end">
                 <button
@@ -129,17 +137,17 @@ const Home = () => {
                   disabled={
                     userData.title === "" && userData.note === "<p><br></p>"
                   }
-                 
                 >
                   Add Note
                 </button>
-               
               </div>
             </div>
             {toggleColorPallete ? (
               <ColorPalette changeColor={changeColor} />
             ) : null}
-              {togglePriorityPallete? <PriorityPalette userData={userData} setUserData={setUserData}/>:null}
+            {togglePriorityPallete ? (
+              <PriorityPalette userData={userData} setUserData={setUserData} />
+            ) : null}
           </form>
 
           <div class="notes__wrapper">
