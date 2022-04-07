@@ -26,7 +26,7 @@ const Home = () => {
     title: "",
     note: "<p><br></p>",
     tags: [],
-    priority:[],
+    priority:{Medium:'2'},
   });
   const submitFormHandler = (e) => {
     e.preventDefault();
