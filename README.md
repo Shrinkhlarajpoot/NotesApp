@@ -21,4 +21,4 @@ It is mobile Responsive.
 
 ## PREVIEW
 
- ![AnyNote]("https://media.giphy.com/media/J8lPhIKD8vMCEsy7gT/giphy.gif")
+ ![AnyNote](https://media.giphy.com/media/J8lPhIKD8vMCEsy7gT/giphy.gif)
