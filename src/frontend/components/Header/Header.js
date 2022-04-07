@@ -22,7 +22,7 @@ const {togglesidebar,setToggleSidebar,searchItem,setSearchItem}=useNotes()
     
   };
   return (
-    <div  className={`header ${darkTheme?"darktheme":null}`}>
+    <div  className={`header2 ${darkTheme?"darktheme":null}`}>
         <div class="hearer__first-items">
         <span class="material-icons-outlined" onClick={()=>setToggleSidebar(!togglesidebar)}>{togglesidebar?"close":"menu"}</span>
       <h2 onClick={()=>navigate("/")}>ANYNOTES</h2>
