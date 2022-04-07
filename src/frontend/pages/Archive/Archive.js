@@ -10,7 +10,8 @@ const Archive = () =>{
               <Filter/>
               <div className="main__wrapper">
                 <Sidebar />
-                <div className="archive__wrapper">
+                <div className="trash__wrapper">
+                  {archiveList?.length === 0 && <p className="empty__lables">No Archives added!</p>}
                     {archiveList?.map((note)=>
                     <NoteCard key={note._id} note={note}/>)}
                     

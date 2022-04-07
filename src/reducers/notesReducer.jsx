@@ -3,7 +3,7 @@ const InitialValues = {
     archiveList: [],
     trashList: [], 
     isEditing:false,
-    editNote:{title:"", note:""}
+    editNote:{title:"", note:"",tags:[]}
   };
   
   const NotesReducerFun = (notesState, { type, payload }) => {

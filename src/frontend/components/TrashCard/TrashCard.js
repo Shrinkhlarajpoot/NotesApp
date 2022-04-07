@@ -3,7 +3,7 @@ import "./TrashCard.css";
 const TrashCard = ({ note }) => {
   const { deleteTrashNoteHandler, restoreTrashNoteHandler } = useNotes();
   return (
-    <div className="notescard" key={note._id}>
+    <div className="notescard" key={note._id}  style={{ backgroundColor: note.bgColor }}>
       <div className="title__pin">
         <div className="note__title">{note.title}</div>
       </div>

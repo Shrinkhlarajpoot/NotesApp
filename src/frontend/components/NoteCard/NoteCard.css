@@ -12,6 +12,9 @@
     border-radius: 10px;
     margin-bottom: 1rem;;
   }
+  .notescard:hover{
+    box-shadow: var(--box-shadow);
+  }
   .title__pin {
     display: flex;
     justify-content: space-between;
@@ -24,7 +27,6 @@
     font-size: 0.8rem;
   }
   .notecard__desp2 {
-    background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,4 +36,11 @@
   }
   .note__desp img{
     max-width:10rem;
+  }
+  .note__tag{
+    width: fit-content;
+    padding: 3px 5px;
+    border:1px solid white;
+    border-radius: 5px;;
+    background-color: white;
   }
