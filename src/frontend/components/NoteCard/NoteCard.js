@@ -58,6 +58,13 @@ const NoteCard = ({ note }) => {
       {toggleColorPallete ? <ColorPalette changeColor={changeColor} /> : null}
       <div className="title__pin">
         <div className="note__title">{note.title}</div>
+        <div
+          className={
+            Object.keys(note.priority)[0]?.length > 0 && "card__priority"
+          }
+        >
+          {Object.keys(note.priority)[0]}
+        </div>
         <span
           class={note.isPinned ? "material-icons" : "material-icons-outlined"}
           onClick={(e) => togglePinHandler(e, note)}

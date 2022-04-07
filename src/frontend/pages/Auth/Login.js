@@ -4,9 +4,11 @@ import "./Auth.css";
 import { loginService } from "../../services";
 import { useAuth } from "../../context";
 import { LoginValidChecker } from "../../../utils/FormValidationChecker";
+import { useTheme } from "../../context/themeContext";
 
 const Login = () => {
 const navigate = useNavigate();
+const {darkTheme}=useTheme()
  const {setAuth,showpassword, setShowPassword }=useAuth();
  const [submit, setSubmit] = useState(false);
  const [errors, setErrors] = useState({});
@@ -47,8 +49,8 @@ const submitLoginForm=async(e,email,password)=>{
   }
  
 return (
-    <div>
-      <form onSubmit={(e)=>e.preventDefault()}>
+    <div className={`auth__pages ${darkTheme?"darktheme":null}`} >
+      <form onSubmit={(e)=>e.preventDefault()} className="auth__form">
         <div className="auth__box">
           <i className="fa fa-close close " id="close" onClick={()=>navigate("/")}></i>
           <h3>Login to AnyNote</h3>

@@ -1,19 +1,18 @@
 .main__wrapper {
   display: flex;
-  background-color: white;
-
   width: 100vw;
   margin: auto;
 }
 .home__wrapper {
   position: relative;
+  background-color: var(--bg-color);
 }
 .main__wrapper-notes {
   width: 100%;
   flex-direction: column;
   position: relative;
-  margin-left: 14rem;
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
 .notes__editor {
   width: 60%;
@@ -63,7 +62,7 @@
   justify-content: center;
   grid-gap: 1rem;
   gap: 1rem;
-  /* min-height: 100vh; */
+ 
 }
 .pinned__list {
   width: 100%;
@@ -74,4 +73,20 @@
   width: 100%;
   padding: 5px 0.8rem;
   border: none;
+}
+@media screen and (max-width:668px) {
+  .main__wrapper{
+    margin-top:4rem;
+  }
+  
+}
+@media screen and (max-width:850px){
+  .notes__editor{
+    min-width:80%;
+  }
+}
+@media screen and (max-width:380px){
+  .notes__editor{
+    min-width:90%;
+  }
 }

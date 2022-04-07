@@ -1,18 +1,17 @@
 .sidebar {
-  min-width: 14rem;
-  /* background-color: var(--bg2-color); */
+  min-width: 12rem;
   height: 90vh;
   margin-top: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(0,158,129,0.1);
+  background-color: var(--bg-color);
   position: fixed;
-
   padding: 2rem 0;
+  z-index: 6;
 }
 .sidebar__active {
-  background-color: rgb(14,211,175);
+  background-color: rgb(14, 211, 175);
 }
 .sidebar__btn {
   padding: 0.6rem 0rem 0.6rem 1rem;
@@ -23,12 +22,14 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.7rem;
+  background-color: var(--bg-color);
+  
 }
 .sidebar__btn:hover {
-  background-color: var(--bg-color);
+  background-color: var(--bg2-color);
 }
 .active {
-  background-color: rgb(14,211,175);
+  background-color: rgb(14, 211, 175);
 }
 .sidebar__btn > * {
   padding: 0 5px;
@@ -36,7 +37,7 @@
 }
 .user_account {
   display: flex;
-  padding: 0 1rem;
+  padding: 0 1rem 3rem 1rem;
 }
 .user_account > * {
   padding: 0 0.5rem;
