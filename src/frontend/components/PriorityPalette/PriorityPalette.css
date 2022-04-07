@@ -1,0 +1,24 @@
+.prioritypall{
+    width:fit-content;
+    height:fit-content;
+    background-color: var(--bg2-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding:5px 15px;
+    border-radius: 10px;
+    position: absolute;
+    left:3rem;
+}
+.priority__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem 0.5rem;
+    cursor: pointer;
+}
+.priority__input{
+    cursor: pointer;
+}

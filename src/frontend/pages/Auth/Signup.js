@@ -4,6 +4,7 @@ import { useAuth } from "../../context";
 import "./Auth.css";
 import { signupService } from "../../services";
 import { SingnupValidChecker } from "../../../utils/FormValidationChecker";
+import { useTheme } from "../../context/themeContext";
 
 const Signup = () => {
   const { auth, setAuth, showpassword, setShowPassword } = useAuth();
@@ -11,6 +12,7 @@ const Signup = () => {
   const [submit, setSubmit] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+ const{darkTheme}=useTheme()
   const [signupform, setSignupForm] = useState({
     firstname: "",
     lastname: "",
@@ -52,8 +54,8 @@ useEffect(() => {
   };
   console.log(signupform);
   return (
-    <div>
-      <form className="auth__box">
+    <div className={`auth__pages auth__form ${darkTheme?"darktheme":null}`} >
+      <form className="auth__box ">
         <i className="fa fa-close" id="close" onClick={() => navigate("/")}></i>
         <h3>Signup to AnyNote</h3>
 

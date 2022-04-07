@@ -1,11 +1,14 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../context";
+import { useAuth, useNotes } from "../../context";
+import { useTheme } from "../../context/themeContext";
 
 const Sidebar = () => {
-const {auth}  =useAuth()
+  const { auth } = useAuth();
+  const { darkTheme } = useTheme();
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${darkTheme ? "darktheme" : null}`}>
       <div>
         <NavLink
           to="/home"
@@ -41,10 +44,10 @@ const {auth}  =useAuth()
         </NavLink>
       </div>
       <div>
-      <div class="user_account">
-        <span class="material-icons-outlined">account_circle</span>
-        <h3>{auth.user}</h3>
-      </div>
+        <div class="user_account">
+          <span class="material-icons-outlined">account_circle</span>
+          <h3>{auth.user}</h3>
+        </div>
       </div>
     </div>
   );

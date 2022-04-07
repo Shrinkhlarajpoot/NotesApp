@@ -1,136 +1,149 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  .auth__box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 25rem;
-    height: fit-content;
-    margin: auto;
-    margin-top: 7rem;
-    padding: 2.5rem 0.5rem;
-    border:1px solid var(--primary-color);
-  
-  }
-  #close {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
-  .auth__box h3 {
-    font-size: 1.5rem;
-    text-align: center;
-    text-transform: uppercase;
-    margin:1rem 0;
-  }
-  .auth__inputs {
-    position: relative;
-    width: 100%;
+  box-sizing: border-box;
 }
-  .auth__inputs input {
-    width: 100%;
-    cursor: pointer;
-  }
- 
-  .fa-eye,
-  .fa-eye-slash {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    cursor:pointer;
-  }
-  
-  .auth__box input {
-    align-content: center;
-    width: 95%;
-    padding: 0.8rem 2rem;
-    border-radius: 3px;
-    margin: 5px 0 0 8px;
-    border: 1px solid var(--primary-color);
-    color: var(--text--color);
-  }
-  input::placeholder {
-    font-size: 1rem;
-    color: var(--primary-color);
-    text-transform: capitalize;
+
+.auth__pages {
+  background-color: var(--bg-color);
+}
+.auth__form{
+  padding:8rem 0 15rem 0;
+}
+.auth__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 25rem;
+  background-color: var(--bg-color);
+  height: fit-content;
+  margin: auto;
+ padding: 2.5rem 0.5rem;
+  border: 1px solid var(--primary-color);
+}
+#close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.auth__box h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+.auth__inputs {
+  position: relative;
+  width: 100%;
+}
+.auth__inputs input {
+  width: 100%;
+  cursor: pointer;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.auth__box input {
+  align-content: center;
+  width: 95%;
+  padding: 0.8rem 2rem;
+  border-radius: 3px;
+  margin: 5px 0 0 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--text--color);
+}
+input::placeholder {
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+.auth__box-sub {
+  width: 100%;
+  padding: 0rem 1rem;
+  color: var(--text--color);
+  cursor: pointer;
+}
+.auth__box-sub h4 {
+  padding: 0.5rem 0;
+  text-align: center;
+}
+.sub__main {
+  width: 100%;
+  text-align: center;
+  background-color: var(--primary-color);
+  /* color: var(--text-color); */
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  border: none;
+  font-size: 1rem;
+}
+
+.sub__main2 {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  /* color: var(--text-color); */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background-color: white;
+}
+.sub__main3 {
+  width: 92%;
+}
+.sub__main2:hover {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+.login__reset {
+  align-self: flex-end;
+  padding: 0 1rem;
+}
+.incorrect__pass {
+  color: red;
+}
+
+@media screen and (max-width: 330px) {
+  .auth__box {
+    width: 20rem;
+    padding-top: 3rem;
   }
   .auth__box-sub {
-    width: 100%;
-    padding: 0rem 1rem;
-    color: var(--text--color);
-    cursor: pointer;
-  }
-  .auth__box-sub h4 {
-    padding: 0.5rem 0;
-    text-align: center;
-  }
-  .sub__main {
-    width: 100%;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    font-weight: bold;
-    margin: 1rem 0 0 0;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 0.6rem 0;
-    border: none;
-    font-size:1rem;
- 
-  }
-  
-  .sub__main2{
-   width: 100%;
-    text-align: center;
-    padding:0.5rem 0;
-    color: var(--text-color);
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 0.5rem  ;
-    border: none;
-    font-size:1rem;
-    background-color:white;
-  }
-  .sub__main3{
-      width: 92%;
-  }
-  .sub__main2:hover {
-    color: var(--text-color);
-    background-color: var(--primary-color);
-    border-radius: 5px;
-  }
-   .login__reset {
-    align-self: flex-end;
     padding: 0 1rem;
   }
-  .incorrect__pass {
-    color: red;
+  .auth__form{
+    padding:8rem 0 40vh 0;
   }
+}
+@media screen and (max-width: 259px) {
+  .auth__box {
+    width: 15rem;
+    padding-top: 3rem;
+  }
+  .auth__box-sub {
+    padding: 0 1rem;
+  }
+}
+@media screen and (max-width: 488px) {
   
-  @media screen and (max-width: 330px) {
-    .auth__box {
-      width: 20rem;
-      padding-top: 3rem;
-    }
-    .auth__box-sub {
-      padding: 0 1rem;
-    }
+  .auth__form{
+    padding:8rem 0 25rem 0;
   }
-  @media screen and (max-width: 259px) {
-    .auth__box {
-      width: 15rem;
-      padding-top: 3rem;
-    }
-    .auth__box-sub {
-      padding: 0 1rem;
-    }
-  }
+}

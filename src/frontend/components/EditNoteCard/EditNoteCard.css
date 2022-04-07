@@ -1,22 +1,30 @@
 .editnote__container--form {
-    position: fixed;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color:rgba(0, 0, 0, 0.6);
-    top: 0;
-    left: 0;
-    z-index:999;
-    
-  }
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.edit__form {
+  width: 50%;
+  background-color: var(--bg-color);
+  position: relative;
+}
+.btn__sec {
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 1088px) {
   .edit__form {
-    width: 40%;
-    background-color: var(--bg-color);
-    position: relative;
+    width: 70%;
   }
-  .btn__sec{
-      margin:0 5px;
+}
+@media screen and (max-width: 612px) {
+  .edit__form {
+    width: 90%;
   }
-  
+}

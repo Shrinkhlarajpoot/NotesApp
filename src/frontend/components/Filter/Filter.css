@@ -3,9 +3,47 @@
   right: 1rem;
   top: 5rem;
   padding: 10px;
-  background-color: var(--bg2-color);
+  z-index: 2;
   border-radius: 50%;
+  cursor: pointer;
 }
 .filter_icon:hover {
   box-shadow: var(box-shadow);
+}
+.filterPalette {
+  position: absolute;
+  right: 10px;
+  width: 8rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg2-color);
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  z-index: 3;
+}
+.filterPalette > * {
+  padding: 4px 0;
+}
+.filterPalette input {
+  cursor: pointer;
+}
+.clear_filter {
+  cursor: pointer;
+  border-bottom: 3px solid var(--primary-color);
+}
+.closeclear {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 668px) {
+  .filter_icon {
+    right: 1.5rem;
+    top: 5.5rem;
+    padding: 10px;
+    z-index: 2;
+
+    border-radius: 50%;
+    cursor: pointer;
+  }
 }

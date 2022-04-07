@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNotes } from "../../context";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
-// import { NoteColorPalette } from "../NoteColorPalette/NoteColorPalette";
+import { PriorityPalette } from "../PriorityPalette/PriorityPalette";
 import { RichTextEditor } from "../RichTextEditor/RichTextEditor";
 
 import "./EditNoteCard.css";
@@ -10,8 +10,8 @@ const EditNoteCard = ({ editNote }) => {
   const { notesState, notesDispatch, editNoteHandler } = useNotes();
   const [editForm, setEditForm] = useState(editNote);
   const [bg, setBg] = useState(editForm.bgColor);
-
   const [toggleColorPallete, setToggleClrPallette] = useState(false);
+  const [togglePriorityPallete, setTogglePriorityPallette] = useState(false);
   function changeColor(e, color) {
     e.stopPropagation();
     setBg(color);
@@ -69,9 +69,11 @@ const EditNoteCard = ({ editNote }) => {
             >
               palette
             </span>
+            <span class="material-icons-outlined" onClick={()=>setTogglePriorityPallette(!togglePriorityPallete)}>signal_cellular_alt</span>
             {toggleColorPallete ? (
               <ColorPalette changeColor={changeColor} />
             ) : null}
+            {togglePriorityPallete ? <PriorityPalette userData={editForm} setUserData={setEditForm}/>:null}
           </div>
           <div className="editor__buttons-end">
             <button

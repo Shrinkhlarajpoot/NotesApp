@@ -33,6 +33,7 @@
   }
   .note__title {
     color: var(--primary-color);
+    word-break: break-all;
   }
   .note__desp img{
     max-width:10rem;
@@ -43,4 +44,17 @@
     border:1px solid white;
     border-radius: 5px;;
     background-color: white;
+  }
+  .card__priority{
+    border:2px solid rgb(248, 158, 158);
+    width:fit-content;
+    padding:2px;
+  }
+
+  @media screen  and (max-width:380px){
+    .notescard{
+      min-width:20rem;
+      margin:0 0.2rem;
+    }
+    
   }
