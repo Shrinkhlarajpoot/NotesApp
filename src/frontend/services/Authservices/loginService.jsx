@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useAuth } from "../../context";
 export const loginService = async (email, password) => {
   try {

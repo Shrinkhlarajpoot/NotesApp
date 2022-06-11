@@ -4,12 +4,9 @@ import "./Auth.css";
 import { loginService } from "../../services";
 import { useAuth } from "../../context";
 import { LoginValidChecker } from "../../../utils/FormValidationChecker";
-import { useTheme } from "../../context/themeContext";
-
 const Login = () => {
 const navigate = useNavigate();
-const {darkTheme}=useTheme()
- const {setAuth,showpassword, setShowPassword }=useAuth();
+const {setAuth,showpassword, setShowPassword }=useAuth();
  const [submit, setSubmit] = useState(false);
  const [errors, setErrors] = useState({});
   const[loginform,setLoginForm]=useState({
@@ -49,7 +46,7 @@ const submitLoginForm=async(e,email,password)=>{
   }
  
 return (
-    <div className={`auth__pages ${darkTheme?"darktheme":null}`} >
+    <div className="auth__pages">
       <form onSubmit={(e)=>e.preventDefault()} className="auth__form">
         <div className="auth__box">
           <i className="fa fa-close close " id="close" onClick={()=>navigate("/")}></i>
@@ -90,7 +87,7 @@ return (
           <div className="auth__box-sub">
             <h4 className="sub__main" onClick={(e)=>submitLoginForm(e,loginform.email,loginform.password)}>LOGIN</h4>
           </div>
-          <button className="sub__main2 sub__main3 Link_style"  onClick={(e)=>setLoginForm({...loginform,email:"adarshbalika@gmail.com",password:"a1234"})}>
+          <button className="sub__main2 sub__main3 Link_style"  onClick={(e)=>setLoginForm({...loginform,email:"shrinkhla@gmail.com",password:"a1234"})}>
             Login With test Credentials
            
           </button>

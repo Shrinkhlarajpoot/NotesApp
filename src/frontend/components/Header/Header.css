@@ -1,9 +1,16 @@
 .header2 {
-  width: 100%;
+  min-width: 100vw;
   height: 5rem;
   padding: 0 2rem;
   background-color: var(--bg2-color);
   border-radius: none;
+  border:2px solid var(--primary-color);
+  position: sticky;
+  top:0;
+  left:0;
+  z-index:1
+
+ 
 }
 .header__input {
   width: 30rem;
@@ -22,7 +29,7 @@
     position: absolute;
     top: 5rem;
     max-width: 82vw;
-    margin: 1rem 0 2rem 1rem;
+    margin: 0rem 0 2rem 1rem;
   }
   .header__btn {
     margin: 0;
@@ -42,6 +49,6 @@
     margin: 0 0.3rem;
   }
   .header2 {
-    padding: 0 0.5rem;
+    padding: 0 0.1rem;
   }
 }

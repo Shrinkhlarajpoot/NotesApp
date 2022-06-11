@@ -2,8 +2,7 @@
 
 :root{
   --primary-color:rgb(0,158,129);
-  /* --bg-color:rgb(245,245,245);
-  --bg2-color:rgb(216, 223, 222); */
+  
   --font-fam:'Acme', sans-serif;
   --box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   --text--color:rgb(54, 52, 52)
@@ -25,15 +24,6 @@ body {
   --bg-color:rgb(245,245,245);
   --bg2-color:rgb(216, 223, 222);
 }
-/* .darktheme{
-  background-color: rgb(94, 92, 92);
-  color:white;
-} */
-body .darktheme{
-  --bg-color:rgb(94, 92, 92);
-  --bg2-color:rgb(216, 223, 222);
-  color:rgb(247, 242, 242);
-}
 
 .Link_style {
   color: var(--text--color);
@@ -44,8 +34,27 @@ body .darktheme{
   cursor: pointer;
   color:var(--primary-color)
 }
+::-webkit-scrollbar {
+  width: 7px;
+  background:lightgray;
+}
+
+::-webkit-scrollbar-track {
+ border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background:var(--primary-color);
+} 
+ input[type="checkbox"],
+ input[type="radio"] {
+  accent-color: var(--primary-color);
+  margin-right: 5px;
+  cursor: pointer;
+}
 @media screen and (max-width: 490px) {
   html {
-    font-size: 80%;
+    font-size: 70%;
   }
 }

@@ -9,14 +9,12 @@ import {
 import { useNotes } from "../../context";
 import "./Labels.css";
 import { FinalFilteredSortedItem } from "../../../utils/getFinalFilteredSortedItem";
-import { useTheme } from "../../context/themeContext";
 const Labels = () => {
   const {
     notesState: { notesList, editNote, isEditing },
     togglesidebar,
   } = useNotes();
- const {darkTheme}=useTheme()
-  const FinalLabelsList = FinalFilteredSortedItem(notesList);
+const FinalLabelsList = FinalFilteredSortedItem(notesList);
 
   const getLabels = (FinalLabelsList) => {
     return FinalLabelsList?.reduce((accum, curr) => {
@@ -38,11 +36,10 @@ const Labels = () => {
       {isEditing && <EditNoteCard editNote={editNote} />}
 
       <Header />
-      <Filter />
-      <div className={`main__wrapper ${darkTheme?"darktheme":null}`}>
+     <div className="main__wrapper">
         {togglesidebar ? <Sidebar /> : null}
         <div className="label__wrapper">
-          {labelList?.length > 0 ? (
+          {labelList?.length > 0 && (
             labelList.map((list) => {
               return (
                 <div className="label-wrapper">
@@ -56,9 +53,9 @@ const Labels = () => {
                 </div>
               );
             })
-          ) : (
-            <p className="empty__lables">No Labels added!</p>
-          )}
+           
+        )}
+           {FinalLabelsList?.length === 0 && <p className="empty__lables">No Labels added!</p>}
         </div>
       </div>
     </div>

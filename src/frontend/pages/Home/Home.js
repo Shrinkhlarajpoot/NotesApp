@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   ColorPalette,
   EditNoteCard,
-  Filter,
-  Header,
+ Header,
   NoteCard,
   PriorityPalette,
   Sidebar,
@@ -13,10 +12,8 @@ import dayjs from "dayjs";
 import "./Home.css";
 import { useNotes } from "../../context";
 import { FinalFilteredSortedItem } from "../../../utils/getFinalFilteredSortedItem";
-import { useTheme } from "../../context/themeContext";
 const Home = () => {
-  const { darkTheme } = useTheme();
-  const { addnewnoteHandler, notesState, togglesidebar, searchItem } =
+  const { addnewnoteHandler, notesState, togglesidebar } =
     useNotes();
   const noteInputRef = useRef(null);
   const [toggleColorPallete, setToggleColorPallette] = useState(false);
@@ -31,7 +28,7 @@ const Home = () => {
   });
   const submitFormHandler = (e) => {
     e.preventDefault();
-    addnewnoteHandler({ ...userData, createdAt: formatDate() });
+    addnewnoteHandler({ ...userData, createdAt: formatDate()});
     setUserData((data) => ({
       ...data,
       title: "",
@@ -43,8 +40,6 @@ const Home = () => {
     setTogglePriorityPallette(false);
     setToggleColorPallette(false);
   };
-  console.log(userData.priority);
-  console.log(notesState.sortByDate, "from home sortby");
   const FinalNotesList = FinalFilteredSortedItem(notesState.notesList);
   const PinnedList = FinalNotesList?.filter((item) => item.isPinned);
   const UnPinnedList = FinalNotesList?.filter((item) => !item.isPinned);
@@ -73,9 +68,7 @@ const Home = () => {
     <div class="home__wrapper">
       {notesState.isEditing && <EditNoteCard editNote={notesState.editNote} />}
       <Header />
-      <Filter />
-
-      <div className={`main__wrapper ${darkTheme ? "darktheme" : null}`}>
+      <div className="main__wrapper">
         {togglesidebar ? <Sidebar /> : null}
         <div className="main__wrapper-notes">
           <form

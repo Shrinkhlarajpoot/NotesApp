@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNotes,useTheme } from "../../context";
+import { useNotes } from "../../context";
 import { ColorPalette } from "../ColorPalette/ColorPalette";
 import { PriorityPalette } from "../PriorityPalette/PriorityPalette";
 import { RichTextEditor } from "../RichTextEditor/RichTextEditor";
@@ -8,7 +8,6 @@ import "./EditNoteCard.css";
 
 const EditNoteCard = ({ editNote }) => {
   const { notesState, notesDispatch, editNoteHandler } = useNotes();
-   const{darkTheme} = useTheme()
   const [editForm, setEditForm] = useState(editNote);
   const [bg, setBg] = useState(editForm.bgColor);
   const [toggleColorPallete, setToggleClrPallette] = useState(false);
@@ -39,7 +38,7 @@ const EditNoteCard = ({ editNote }) => {
     <div class="editnote__container--form">
       <form
       
-        className={`home__container--form  edit__form ${darkTheme ? "darktheme" : null}`}
+        className="home__container--form  edit__form"
         onSubmit={(e) => submitEditFormHandler(e)}
         style={{ backgroundColor: bg }}
       >

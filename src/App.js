@@ -1,21 +1,14 @@
 import "./App.css";
 import { Pageroutes } from "./routes/Pageroutes";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastWrapper } from "./frontend/components/ToastWrapper";
 
 
 function App() {
   return (
   <div className="app">
-     
-     <ToastContainer
-       
-        autoClose={1500}
-        position="bottom-right"
-      />  
-     
-      
-  <Pageroutes/>
+     <ToastWrapper/> 
+     <Pageroutes/>
   </div>
   )
 }

@@ -1,17 +1,18 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { useAuth, useNotes } from "../../context";
-import { useTheme } from "../../context/themeContext";
-
 const Sidebar = () => {
   const { auth } = useAuth();
-  const { darkTheme } = useTheme();
+  const {togglesidebar,setToggleSidebar}=useNotes();
 
   return (
-    <div className={`sidebar ${darkTheme ? "darktheme" : null}`}>
+    <div className="sidebar">
       <div>
+      <h2 onClick={()=>navigate("/")} className="sidebar_apptitle">ANYNOTES</h2>  
+      <span class="material-icons-outlined sidebar_close" onClick={()=>setToggleSidebar(!togglesidebar)}>{togglesidebar?"close":"menu"}</span>
         <NavLink
           to="/home"
+        
           className={`sidebar__btn Link_style  ${({ isActive }) =>
             isActive ? "active" : null}`}
         >
@@ -20,6 +21,7 @@ const Sidebar = () => {
         </NavLink>
         <NavLink
           to="/labels"
+      
           className={`sidebar__btn Link_style  ${({ isActive }) =>
             isActive ? "active" : null}`}
         >
@@ -28,6 +30,7 @@ const Sidebar = () => {
         </NavLink>
         <NavLink
           to="/archive"
+          
           className={`sidebar__btn Link_style  ${({ isActive }) =>
             isActive ? "active" : null}`}
         >
@@ -36,6 +39,7 @@ const Sidebar = () => {
         </NavLink>
         <NavLink
           to="/trash"
+        
           className={`sidebar__btn Link_style  ${({ isActive }) =>
             isActive ? "active" : null}`}
         >

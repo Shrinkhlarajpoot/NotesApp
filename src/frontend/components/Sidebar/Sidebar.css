@@ -1,14 +1,17 @@
 .sidebar {
-  min-width: 12rem;
-  height: 90vh;
-  margin-top: 2px;
+  min-width: 13rem;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--bg-color);
-  position: fixed;
-  padding: 2rem 0;
+  padding: 2rem 1rem 2rem 0;
   z-index: 6;
+  position: fixed;
+  background-color: var(--bg2-color);
+  border:2px solid var(--primary-color);
+  border-top: none;
+  
 }
 .sidebar__active {
   background-color: rgb(14, 211, 175);
@@ -22,11 +25,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.7rem;
-  background-color: var(--bg-color);
+ 
   
 }
 .sidebar__btn:hover {
-  background-color: var(--bg2-color);
+  background-color: var(--bg-color);
 }
 .active {
   background-color: rgb(14, 211, 175);
@@ -41,4 +44,31 @@
 }
 .user_account > * {
   padding: 0 0.5rem;
+}
+.sidebar_close{
+ float: right;
+ display: none;
+}
+.sidebar_apptitle{
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+@media screen and (max-width:668px) {
+  .sidebar{
+    min-width:90vw;
+    min-height:100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 2;
+  }
+  .sidebar_close{
+     display:block;
+     margin-bottom: 1rem;
+   }
+   .sidebar_apptitle{
+     display:block;
+     padding: 0 7rem;
+   }
 }

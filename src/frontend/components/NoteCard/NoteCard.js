@@ -39,10 +39,7 @@ const NoteCard = ({ note }) => {
     e.stopPropagation();
     editNoteHandler(e, { ...note, bgColor: color });
   }
-
-  // console.log(existInArchive);
-  console.log(notesState.isEditing);
-  return (
+return (
     <div
       style={{ backgroundColor: note.bgColor }}
       className="notescard"

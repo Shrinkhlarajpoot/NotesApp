@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import {
   createContext,
   useContext,
@@ -43,9 +43,7 @@ const NotesProvider = ({ children }) => {
       (async function () {
         try {
           const { status, data } = await postnotesService(note, token);
-          console.log(data, "from new noteHandler");
-
-          if (status === 201) {
+         if (status === 201) {
             toast.success("New Note Added");
             notesDispatch({
               type: "SET_NOTES",
@@ -68,8 +66,6 @@ const NotesProvider = ({ children }) => {
       (async function () {
         try {
           const { status, data } = await postarchivenoteService(note, token);
-          console.log(data, "from new archivenoteHandler");
-
           if (status === 201) {
             toast.success("Note Archived");
             notesDispatch({
@@ -82,7 +78,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -119,7 +115,7 @@ const NotesProvider = ({ children }) => {
           const { status, data } = await posttrashnoteService(token, note);
 
           if (status === 201) {
-            toast.info("Note Added to Trash");
+            toast.success("Note Added to Trash");
             notesDispatch({
               type: "SET_TRASH_NOTES",
               payload: {
@@ -131,7 +127,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -158,7 +154,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -182,7 +178,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -206,7 +202,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -225,7 +221,7 @@ const NotesProvider = ({ children }) => {
             : await editnoteService(token, note);
           console.log(data);
           if (status === 201) {
-            toast.info("Modified Note");
+            toast.success("Modified Note");
             existInArchive
               ? notesDispatch({
                   type: "SET_ARCHIVE_NOTES",
@@ -242,7 +238,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (error) {
           toast.error("Try Again Later");
-          console.log(error);
+          console.error(error);
         }
       })();
     }
@@ -264,7 +260,7 @@ const NotesProvider = ({ children }) => {
           }
         } catch (err) {
           toast.success("Try Again Later");
-          console.log(err);
+          console.error(err);
         }
       })();
     }

@@ -1,22 +1,19 @@
 import "./Trash.css";
-import { Filter, Header, TrashCard, Sidebar } from "../../components";
-
+import { Header, TrashCard, Sidebar } from "../../components";
 import { useNotes } from "../../context";
 import { FinalFilteredSortedItem } from "../../../utils/getFinalFilteredSortedItem";
-import { useTheme } from "../../context/themeContext";
+
 const Trash = () => {
   const {
     notesState: { trashList },
     togglesidebar,
     searchItem,
   } = useNotes();
-const {darkTheme}= useTheme()
-  const FinalTrashList = FinalFilteredSortedItem(trashList);
+const FinalTrashList = FinalFilteredSortedItem(trashList);
   return (
     <div class="home__wrapper">
       <Header />
-      <Filter />
-      <div   className={`main__wrapper ${darkTheme?"darktheme":null}`}>
+     <div   className="main__wrapper">
         {togglesidebar ? <Sidebar /> : null}
         <div className=" trash__wrapper">
           {FinalTrashList?.map((note) => (

@@ -1,6 +1,4 @@
-const getSortByDate = ( noteList, sortByDate ) => {
-    console.log(sortByDate,"from fun sortByDate")
-    
+const getSortByDate = (noteList, sortByDate) => {
   if (sortByDate === "LATEST") {
     return [...noteList].sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -12,6 +10,5 @@ const getSortByDate = ( noteList, sortByDate ) => {
     );
   }
   return noteList;
-
 };
 export { getSortByDate };

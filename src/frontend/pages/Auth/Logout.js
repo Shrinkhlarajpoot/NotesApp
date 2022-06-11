@@ -1,12 +1,9 @@
 import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useTheme } from "../../context/themeContext";
-
 const Logout = () => {
   const navigate = useNavigate();
-  const{darkTheme}=useTheme()
-   return (
-    <div className={`auth__pages auth__form ${darkTheme?"darktheme":null}`} >
+  return (
+    <div className="auth__pages auth__form">
       <div className="auth__box auth__form">
         <i
           className="fa fa-close"

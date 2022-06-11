@@ -5,7 +5,7 @@ const Filter = () => {
   const [togglefilter, setToggleFilter] = useState(false);
   const { notesState, notesDispatch } = useNotes();
   return (
-    <div>
+    <div className="filter_container">
       <span
         class="material-icons-outlined filter_icon"
         onClick={() => setToggleFilter(true)}

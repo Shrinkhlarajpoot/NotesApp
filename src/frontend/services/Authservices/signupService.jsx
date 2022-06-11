@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const signupService = async (firstname, lastname, email, password) => {
   console.log(firstname, lastname, email, password);
